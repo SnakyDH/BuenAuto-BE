@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-10-15T23:24:18.467Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="rwcVEGvdmMfZEtS70DXS" version="21.7.2" type="github">
+<mxfile host="app.diagrams.net" modified="2023-10-15T23:25:59.025Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="BEAt7woLBtn3Ga8Tdi82" version="21.7.2" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
     <mxGraphModel dx="1660" dy="1570" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
@@ -602,7 +602,7 @@
           <mxGeometry x="1430" y="130" width="140" height="110" as="geometry" />
         </mxCell>
         <mxCell id="caQOpXR8TpU0hCaSds-r-238" value="" style="shape=table;startSize=0;container=1;collapsible=0;childLayout=tableLayout;" vertex="1" parent="caQOpXR8TpU0hCaSds-r-237">
-          <mxGeometry y="30" width="140" height="100" as="geometry" />
+          <mxGeometry y="30" width="140" height="90" as="geometry" />
         </mxCell>
         <mxCell id="caQOpXR8TpU0hCaSds-r-239" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;strokeColor=inherit;top=0;left=0;bottom=0;right=0;collapsible=0;dropTarget=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="caQOpXR8TpU0hCaSds-r-238">
           <mxGeometry width="140" height="40" as="geometry" />
@@ -613,11 +613,11 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="caQOpXR8TpU0hCaSds-r-241" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;strokeColor=inherit;top=0;left=0;bottom=0;right=0;collapsible=0;dropTarget=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="caQOpXR8TpU0hCaSds-r-238">
-          <mxGeometry y="40" width="140" height="60" as="geometry" />
+          <mxGeometry y="40" width="140" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="caQOpXR8TpU0hCaSds-r-242" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;align=left;" vertex="1" parent="caQOpXR8TpU0hCaSds-r-241">
-          <mxGeometry width="140" height="60" as="geometry">
-            <mxRectangle width="140" height="60" as="alternateBounds" />
+        <mxCell id="caQOpXR8TpU0hCaSds-r-242" value="Costo&lt;br&gt;Valor total" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;align=left;" vertex="1" parent="caQOpXR8TpU0hCaSds-r-241">
+          <mxGeometry width="140" height="50" as="geometry">
+            <mxRectangle width="140" height="50" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
         <mxCell id="caQOpXR8TpU0hCaSds-r-243" value="detalles_transaccion" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="caQOpXR8TpU0hCaSds-r-237">
