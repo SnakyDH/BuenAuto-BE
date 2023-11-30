@@ -2,7 +2,7 @@ import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { Type } from './type.enum';
 import { TransactionEntity } from './transaction.entity';
 
-@Entity('type')
+@Entity('type_transaction')
 export class TypeEntity {
   @PrimaryGeneratedColumn()
   id: number;

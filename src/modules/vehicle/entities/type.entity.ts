@@ -1,7 +1,7 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { Type } from '../domain/type.enum';
 
-@Entity('type')
+@Entity('type_vehicle')
 export class TypeEntity {
   @PrimaryGeneratedColumn()
   id: number;
