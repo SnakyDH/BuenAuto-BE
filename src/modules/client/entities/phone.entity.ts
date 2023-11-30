@@ -4,6 +4,8 @@ import { ClientEntity } from './client.entity';
 @Entity('phone_client')
 export class PhoneEntity {
   @PrimaryColumn()
+  id: string;
+
   @OneToOne(() => ClientEntity, (client) => client.phone)
   client: ClientEntity;
 
