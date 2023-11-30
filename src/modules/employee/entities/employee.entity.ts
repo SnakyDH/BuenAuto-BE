@@ -6,10 +6,12 @@ import {
   CreateDateColumn,
   OneToMany,
   ManyToOne,
+  OneToOne,
 } from 'typeorm';
 import { PositionEntity } from './position.entity';
 import { BranchEntity } from 'src/modules/branch/entities/branch.entity';
 import { Role } from '../domain/role.enum';
+import { PhoneEntity } from './phone.entity';
 
 @Entity('employee')
 export class EmployeeEntity {
@@ -44,4 +46,7 @@ export class EmployeeEntity {
 
   @ManyToOne(() => BranchEntity, (branch) => branch.id)
   branch: BranchEntity;
+
+  @OneToOne(() => PhoneEntity, (phone) => phone.employee)
+  phone: PhoneEntity;
 }

@@ -6,8 +6,10 @@ import {
   Entity,
   ManyToOne,
   OneToMany,
+  OneToOne,
   PrimaryColumn,
 } from 'typeorm';
+import { PhoneEntity } from './phone.entity';
 
 @Entity('client')
 export class ClientEntity {
@@ -28,4 +30,7 @@ export class ClientEntity {
 
   @OneToMany(() => TransactionEntity, (transaction) => transaction.client)
   transactions: TransactionEntity[];
+
+  @OneToOne(() => PhoneEntity, (phone) => phone.client)
+  phone: PhoneEntity;
 }
