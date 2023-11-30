@@ -1,9 +1,13 @@
-import { Entity, PrimaryColumn } from 'typeorm';
+import { Entity, OneToOne, PrimaryColumn } from 'typeorm';
+import { EmployeeEntity } from './employee.entity';
 
-@Entity('phone')
+@Entity('phone_employee')
 export class PhoneEntity {
-  @PrimaryColumn()
+  @OneToOne(() => EmployeeEntity, (employee) => employee.code)
   code_employee: number;
+
+  @OneToOne(() => EmployeeEntity, (employee) => employee.id)
+  idEmployee: number;
 
   @PrimaryColumn({ length: 15 })
   number: string;

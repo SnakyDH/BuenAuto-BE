@@ -1,10 +1,14 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { EmployeeEntity } from './employee.entity';
 
-@Entity('position')
+@Entity('position_employee')
 export class PositionEntity {
-  @PrimaryGeneratedColumn()
-  id_position: number;
+  @PrimaryGeneratedColumn({ name: 'id_position' })
+  idPosition: number;
 
   @Column({ length: 50 })
   name: string;
+
+  @ManyToOne(() => EmployeeEntity, (employee) => employee.code)
+  employee: EmployeeEntity;
 }

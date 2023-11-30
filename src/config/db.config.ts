@@ -8,12 +8,11 @@ export const getDataBaseConfig = (): TypeOrmModuleOptions => {
   return {
     type: 'postgres',
     host: process.env.DATABASE_HOST,
-    port: parseInt(process.env.DATABASE_PORT, 10) || 5432,
-    username: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE_NAME,
+    port: parseInt(process.env.DATABASE_PORT || '5432'),
+    username: process.env.DATABASE_USER || '',
+    password: process.env.DATABASE_PASSWORD || '',
+    database: process.env.DATABASE_NAME || '',
     entities: [path.join(__dirname, '../**/*.entity{.ts,.js}')],
     synchronize: true,
-    logging: true,
   };
 };
