@@ -1,12 +1,12 @@
 import { ClientEntity } from 'src/modules/client/entities/client.entity';
 import { EmployeeEntity } from 'src/modules/employee/entities/employee.entity';
 import { TransactionEntity } from 'src/modules/transactions/entities/transaction.entity';
-import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('branch')
 export class BranchEntity {
-  @PrimaryColumn()
-  id: string;
+  @PrimaryGeneratedColumn()
+  id: number;
 
   @Column({ length: 45 })
   name: string;
