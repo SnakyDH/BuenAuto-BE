@@ -13,7 +13,8 @@ import { PositionEntity } from '../entities/position.entity';
 import { BranchService } from 'src/modules/branch/services/branch.service';
 import { BranchEntity } from 'src/modules/branch/entities/branch.entity';
 import { CreateBranchDto } from 'src/modules/branch/dtos/create.dto';
-import { hash } from 'bcrypt';
+import { compare, hash } from 'bcrypt';
+import { LoginDto } from '../dtos/login.employee';
 @Injectable()
 export class EmployeeService {
   constructor(
@@ -24,6 +25,25 @@ export class EmployeeService {
   ) {}
   async getAll() {
     return await this.repo.find();
+  }
+  async login(employeeDto: LoginDto) {
+    try {
+      const employee = await this.findByCode(employeeDto.code);
+      if (!employee) {
+        throw new NotFoundException('employee not found');
+      }
+      const isMatch = await this.comparePassword(
+        employeeDto.password,
+        employee.password,
+      );
+      if (!isMatch) {
+        throw new BadRequestException('invalid credentials');
+      }
+      return { ...employee, password: '' };
+    } catch (e) {
+      console.error(e);
+      throw new HttpException(e, 500);
+    }
   }
   async create(employeeDto: registerEmployeeDto) {
     try {
@@ -90,6 +110,16 @@ export class EmployeeService {
       throw new HttpException(e, 500);
     }
   }
+
+  async findByCode(code: number): Promise<EmployeeEntity | null> {
+    return this.repo
+      .createQueryBuilder()
+      .select()
+      .where('code = :code', {
+        code,
+      })
+      .getOne();
+  }
   async findById(id: string): Promise<EmployeeEntity | null> {
     return this.repo.findOne({
       where: { id },
@@ -106,5 +136,8 @@ export class EmployeeService {
   }
   async hashPassword(password: string): Promise<string> {
     return await hash(password, 10);
+  }
+  async comparePassword(password: string, hash: string): Promise<boolean> {
+    return await compare(password, hash);
   }
 }
