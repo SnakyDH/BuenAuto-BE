@@ -8,6 +8,7 @@ import {
 } from '@nestjs/common';
 import { EmployeeService } from '../services/employee.service';
 import { registerEmployeeDto } from 'src/modules/employee/dtos/register.employee';
+import { LoginDto } from '../dtos/login.employee';
 
 @Controller('employee')
 export class EmployeeController {
@@ -23,6 +24,10 @@ export class EmployeeController {
   @Post()
   async create(@Body() employee: registerEmployeeDto) {
     return await this.employeeService.create(employee);
+  }
+  @Post('login')
+  async login(@Body() employee: LoginDto) {
+    return await this.employeeService.login(employee);
   }
   @Put()
   async update() {
