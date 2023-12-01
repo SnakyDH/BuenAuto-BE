@@ -7,8 +7,8 @@ import {
   Put,
 } from '@nestjs/common';
 import { EmployeeService } from '../services/employee.service';
-import { Employee } from '../interfaces/employee';
-//: Promise<Employee[]>*/
+import { registerEmployeeDto } from 'src/modules/employee/dtos/register.employee';
+
 @Controller('employee')
 export class EmployeeController {
   constructor(private readonly employeeService: EmployeeService) {}
@@ -21,7 +21,7 @@ export class EmployeeController {
     return employees;
   }
   @Post()
-  async create(@Body() employee: Employee) {
+  async create(@Body() employee: registerEmployeeDto) {
     return await this.employeeService.create(employee);
   }
   @Put()

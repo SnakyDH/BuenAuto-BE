@@ -1,12 +1,19 @@
-import { Entity, OneToOne, PrimaryColumn } from 'typeorm';
+import {
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryColumn,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { ClientEntity } from './client.entity';
 
 @Entity('phone_client')
 export class PhoneEntity {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   id: string;
 
-  @OneToOne(() => ClientEntity, (client) => client.phone)
+  @OneToOne(() => ClientEntity)
+  @JoinColumn({ name: 'client_id' })
   client: ClientEntity;
 
   @PrimaryColumn({ length: 15 })
