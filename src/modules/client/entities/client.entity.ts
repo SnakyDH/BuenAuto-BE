@@ -4,6 +4,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
   ManyToOne,
   OneToMany,
   OneToOne,
@@ -26,6 +27,7 @@ export class ClientEntity {
   createdAt: Date;
 
   @ManyToOne(() => BranchEntity, (branch) => branch.client)
+  @JoinColumn({ name: 'branch_id' })
   branch: BranchEntity;
 
   @OneToMany(() => TransactionEntity, (transaction) => transaction.client)

@@ -1,12 +1,10 @@
-import { Entity, OneToOne, PrimaryColumn } from 'typeorm';
+import { Entity, OneToOne, JoinColumn, PrimaryColumn } from 'typeorm';
 import { EmployeeEntity } from './employee.entity';
 
 @Entity('phone_employee')
 export class PhoneEntity {
-  @OneToOne(() => EmployeeEntity, (employee) => employee.code)
-  code_employee: number;
-
-  @OneToOne(() => EmployeeEntity, (employee) => employee.phone)
+  @OneToOne(() => EmployeeEntity, { cascade: true, eager: true })
+  @JoinColumn()
   employee: EmployeeEntity;
 
   @PrimaryColumn({ length: 15 })

@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { EmployeeEntity } from './employee.entity';
 
 @Entity('position_employee')
@@ -9,6 +9,6 @@ export class PositionEntity {
   @Column({ length: 50 })
   name: string;
 
-  @ManyToOne(() => EmployeeEntity, (employee) => employee.code)
-  employee: EmployeeEntity;
+  @OneToMany(() => EmployeeEntity, (employee) => employee.code)
+  employee: EmployeeEntity[];
 }
