@@ -10,6 +10,11 @@ export class BranchService {
     @InjectRepository(BranchEntity)
     private readonly repo: Repository<BranchEntity>,
   ) {}
+  async getAllBranchs() {
+    const result = await this.repo.query('SELECT b.name,b.city FROM branch b;');
+    console.log(result); //Comprobar en pantalla
+    return result;
+  }
   findBranchByName(name: string): Promise<BranchEntity | null> {
     return this.repo.findOne({
       where: { name },
