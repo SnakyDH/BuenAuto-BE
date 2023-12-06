@@ -58,7 +58,7 @@ export class VehicleService {
       lineExists = await this.lineService.getId(body.line.name);
     }
     const createVehicle = await this.repo.query(
-      `INSERT INTO vehicle (model,chassis,plate,value,"lineId","colorId","typeId") 
+      `INSERT INTO vehicle (model,chassis,plate,value,line_id,color_id,type_id) 
       VALUES ('${body.model}','${body.chassis}','${body.plate}','${body.value}','${lineExists[0].id}','${colorExists[0].id}','${typeExists[0].id}')`,
     );
     return;
