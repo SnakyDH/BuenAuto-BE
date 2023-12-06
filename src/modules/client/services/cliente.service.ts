@@ -12,12 +12,14 @@ export class ClientService {
   ) {}
 
   async getAllClients() {
-    const result = await this.repo.query('Select * from client;');
+    const result = await this.repo.query(
+      'SELECT c.id, c.name, c.city, c.created_date, b.name as sucursal FROM client c JOIN branch b ON (c.branch_id=b.id);',
+    );
     console.log(result); //Comprobar en pantalla
     return result;
   }
 
-  async getOne(id: String) {
+  async getOne(id: string) {
     const rquery = await this.repo.query(
       `SELECT c.id, c.name, c.city, c.created_date, b.name as "Sucursal", p.number FROM client c 
       JOIN branch b ON(c."branchId"=b.id) 
