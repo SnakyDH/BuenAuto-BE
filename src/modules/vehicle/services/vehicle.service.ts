@@ -26,7 +26,7 @@ export class VehicleService {
     console.log(result); //Comprobar en pantalla
     return result;
   }
-  async getOne(id: String) {
+  async getOne(id: string) {
     const rquery = await this.repo.query(
       `SELECT v.id, v.model, v.chassis, v.plate, l.name AS linea, b.name as MARCA, c.name AS COLOR, v.value FROM vehicle v JOIN line l ON (v.line_id=l.id) JOIN brand b ON (l."brandId"=b.id) JOIN color c ON (v.color_id=c.id) JOIN type_vehicle ty ON (v.type_id=ty.id) WHERE v.id='${id}';`,
     );
@@ -35,6 +35,7 @@ export class VehicleService {
   async createVehicle(body: VehicleDto) {
     //Verificar-Añadir tipo de vehiculo
     let typeExists = await this.typeService.getId(body.type);
+    console.log(body);
     if (!typeExists) {
       const createNewType = await this.typeService.createType(body.type);
       typeExists = await this.typeService.getId(body.type);
@@ -57,6 +58,9 @@ export class VehicleService {
       const createBrand = await this.lineService.createLine(body.line);
       lineExists = await this.lineService.getId(body.line.name);
     }
+    console.log(lineExists[0].id);
+    console.log(colorExists);
+    console.log(typeExists);
     const createVehicle = await this.repo.query(
       `INSERT INTO vehicle (model,chassis,plate,value,line_id,color_id,type_id) 
       VALUES ('${body.model}','${body.chassis}','${body.plate}','${body.value}','${lineExists[0].id}','${colorExists[0].id}','${typeExists[0].id}')`,

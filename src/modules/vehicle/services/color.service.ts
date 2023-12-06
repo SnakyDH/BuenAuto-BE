@@ -20,6 +20,9 @@ export class ColorService {
     const result = await this.repo.query(
       `SELECT id FROM color WHERE name='${name}'`,
     );
+    if (result.length === 0) {
+      return null;
+    }
     return result;
   }
 
