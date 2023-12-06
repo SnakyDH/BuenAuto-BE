@@ -6,6 +6,7 @@ import { LineService } from '../services/line.service';
 import { lineDto } from '../dtos/line.dto';
 import { ColorService } from '../services/color.service';
 import { colorDto } from '../dtos/color.dto';
+import { VehicleDto } from '../dtos/vehicle.dto';
 
 @Controller('vehicle')
 export class VehicleController {
@@ -48,5 +49,20 @@ export class VehicleController {
   @Post('NewColor')
   createColor(@Body() body: colorDto) {
     return this.colorService.createColor(body);
+  }
+  //Nuevo vehiculo
+  @Post('new')
+  createVehicle(@Body() body: VehicleDto) {
+    return this.vehicleService.createVehicle(body);
+  }
+  //Consular todos los vehiculos
+  @Get()
+  getAllVehicle() {
+    return this.vehicleService.getAllVehicles();
+  }
+  //Consultar un vehiculo
+  @Get(':id')
+  getOneVehicle(@Param('id') id: string) {
+    return this.vehicleService.getOne(id);
   }
 }

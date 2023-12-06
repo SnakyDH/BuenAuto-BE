@@ -31,9 +31,8 @@ export class ClientService {
     const aux = await this.repo.query(
       `SELECT id FROM branch where name='${body.branchName}'`,
     );
-    console.log(aux[0].id);
     const rquery = await this.repo.query(
-      `INSERT INTO client (id,name,city,"branchId") VALUES ('${body.id}','${body.name}','${body.city}','${aux[0].id}');`,
+      `INSERT INTO client (id,name,city,branch_id) VALUES ('${body.id}','${body.name}','${body.city}','${aux[0].id}');`,
     );
     const rpquery = await this.repo.query(
       `INSERT INTO phone_client VALUES ('${body.id}','${body.phone}');`,
