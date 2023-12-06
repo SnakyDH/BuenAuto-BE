@@ -24,7 +24,7 @@ export class EmployeeService {
     private readonly branchService: BranchService,
   ) {}
   async getAll() {
-    return await this.repo.find();
+    return await this.repo.createQueryBuilder('employee').getMany();
   }
   async login(employeeDto: LoginDto) {
     try {
